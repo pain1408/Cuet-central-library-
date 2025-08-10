@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUET Library - Deployment Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #3b82f6; }
+        code { background: #f1f5f9; padding: 2px 4px; border-radius: 3px; }
+        pre { background: #f1f5f9; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .feature { background: #dbeafe; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🏛️ CUET Library Management System</h1>
+    <p><strong>A simple, static HTML/CSS/JS library management system that can be deployed anywhere!</strong></p>
+
+    <h2>📁 Project Structure</h2>
+    <pre>
+cuet-library-static/
+├── index.html              # Landing page
+├── login.html              # Login page
+├── register.html           # Registration page
+├── dashboard.html          # Student dashboard
+├── books.html              # Books catalog
+├── admin.html              # Admin dashboard
+├── styles/
+│   └── main.css            # All styles
+├── scripts/
+│   ├── main.js             # Common functionality
+│   ├── auth.js             # Authentication
+│   ├── dashboard.js        # Dashboard logic
+│   ├── books.js            # Books functionality
+│   └── admin.js            # Admin functionality
+├── images/
+│   └── cuet-logo.png       # Logo (add your own)
+└── README.html             # This file
+    </pre>
+
+    <h2>✨ Features</h2>
+    <div class="feature">📚 <strong>Book Management:</strong> Browse, search, and pre-book books</div>
+    <div class="feature">👤 <strong>User Authentication:</strong> Student and admin login</div>
+    <div class="feature">📊 <strong>Dashboard:</strong> Personal stats and activity tracking</div>
+    <div class="feature">💰 <strong>Fine Management:</strong> View and pay fines online</div>
+    <div class="feature">📝 <strong>Notes Sharing:</strong> Upload and download study notes</div>
+    <div class="feature">⚡ <strong>Real-time Search:</strong> Instant book filtering</div>
+    <div class="feature">📱 <strong>Responsive Design:</strong> Works on all devices</div>
+
+    <h2>🚀 Deployment Options</h2>
+
+    <h3>1. GitHub Pages (Free)</h3>
+    <ol>
+        <li>Create a new repository on GitHub</li>
+        <li>Upload all files to the repository</li>
+        <li>Go to Settings → Pages</li>
+        <li>Select "Deploy from a branch" → main</li>
+        <li>Your site will be live at <code>https://username.github.io/repository-name</code></li>
+    </ol>
+
+    <h3>2. Netlify (Free)</h3>
+    <ol>
+        <li>Go to <a href="https://netlify.com">netlify.com</a></li>
+        <li>Drag and drop your project folder</li>
+        <li>Get instant deployment with custom domain</li>
+    </ol>
+
+    <h3>3. Vercel (Free)</h3>
+    <ol>
+        <li>Go to <a href="https://vercel.com">vercel.com</a></li>
+        <li>Import your GitHub repository</li>
+        <li>Automatic deployment on every push</li>
+    </ol>
+
+    <h3>4. Any Web Server</h3>
+    <p>Simply upload all files to any web hosting service. No build process required!</p>
+
+    <h2>🔧 Customization</h2>
+
+    <h3>Colors & Branding</h3>
+    <p>Edit <code>styles/main.css</code> to change:</p>
+    <ul>
+        <li>Primary color: <code>#3b82f6</code></li>
+        <li>Logo: Replace <code>images/cuet-logo.png</code></li>
+        <li>University name: Search and replace "CUET"</li>
+    </ul>
+
+    <h3>Mock Data</h3>
+    <p>Update mock data in JavaScript files:</p>
+    <ul>
+        <li><code>scripts/books.js</code> - Book catalog</li>
+        <li><code>scripts/dashboard.js</code> - User stats</li>
+        <li><code>scripts/admin.js</code> - Admin data</li>
+    </ul>
+
+    <h2>🔐 Demo Credentials</h2>
+    <p><strong>Student Login:</strong></p>
+    <ul>
+        <li>Student ID: Any number (e.g., 2204054)</li>
+        <li>Password: Any password</li>
+    </ul>
+    
+    <p><strong>Admin Login:</strong></p>
+    <ul>
+        <li>Email: Any email</li>
+        <li>Password: Any password</li>
+    </ul>
+
+    <h2>📱 Browser Support</h2>
+    <ul>
+        <li>✅ Chrome, Firefox, Safari, Edge</li>
+        <li>✅ Mobile browsers</li>
+        <li>✅ No build tools required</li>
+        <li>✅ Works offline after first load</li>
+    </ul>
+
+    <h2>🛠️ Technical Details</h2>
+    <ul>
+        <li><strong>Frontend:</strong> Pure HTML5, CSS3, Vanilla JavaScript</li>
+        <li><strong>Icons:</strong> Lucide (CDN)</li>
+        <li><strong>Storage:</strong> localStorage for demo data</li>
+        <li><strong>Responsive:</strong> CSS Grid & Flexbox</li>
+        <li><strong>No Dependencies:</strong> No npm, no build process</li>
+    </ul>
+
+    <h2>🔄 Adding Real Backend</h2>
+    <p>To connect to a real database:</p>
+    <ol>
+        <li>Replace localStorage calls with API calls</li>
+        <li>Update authentication in <code>scripts/auth.js</code></li>
+        <li>Modify data loading functions</li>
+        <li>Add proper error handling</li>
+    </ol>
+
+    <h2>📞 Support</h2>
+    <p>This is a static demo. For a production system, you would need:</p>
+    <ul>
+        <li>Backend API (Node.js, PHP, Python, etc.)</li>
+        <li>Database (MySQL, PostgreSQL, MongoDB)</li>
+        <li>User authentication system</li>
+        <li>File upload handling</li>
+        <li>Payment gateway integration</li>
+    </ul>
+
+    <hr>
+    <p><em>Created for CUET Library Management System project by Mohammad Hasan (2204054), Md. Zubayer Muntasir (2204058), Md. Sazid Hossan (2204065), Md. Fakhrul Hasan (2204066)</em></p>
+</body>
+</html>

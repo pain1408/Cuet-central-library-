@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books - CUET Library</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/cuet-logo.png" alt="CUET Logo" class="logo">
+                <span class="brand-text">CUET Library</span>
+            </div>
+            <div class="header-actions">
+                <a href="dashboard.html" class="btn btn-ghost">
+                    <i data-lucide="home"></i>
+                    Dashboard
+                </a>
+                <button class="btn btn-ghost">
+                    <i data-lucide="user"></i>
+                    Profile
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">My Books</h1>
+            <p class="page-description">Manage your borrowed books, renewals, and pre-bookings</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="book-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="book-open"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Currently Borrowed</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="clock"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Pre-booked</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="alert-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Overdue</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i data-lucide="refresh-cw"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Renewals Left</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="book-tabs">
+            <button class="tab-btn active" data-tab="borrowed">Currently Borrowed</button>
+            <button class="tab-btn" data-tab="prebooked">Pre-booked</button>
+            <button class="tab-btn" data-tab="history">Borrowing History</button>
+        </div>
+
+        <!-- Currently Borrowed Books -->
+        <div class="tab-content active" id="borrowed-tab">
+            <div class="books-list">
+                <div class="book-item">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=DBMS" alt="Database Management Systems">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Database Management Systems</h3>
+                        <p class="book-author">by Raghu Ramakrishnan</p>
+                        <p class="book-isbn">ISBN: 978-0072465631</p>
+                        <div class="book-dates">
+                            <span class="borrowed-date">Borrowed: 2025-01-15</span>
+                            <span class="due-date">Due: 2025-02-15</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-primary">25 days left</span>
+                            <span class="renewal-info">2 renewals left</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-outline btn-small" onclick="renewBook(1)">
+                            <i data-lucide="refresh-cw"></i>
+                            Renew
+                        </button>
+                        <button class="btn btn-ghost btn-small" onclick="viewBookDetails(1)">
+                            <i data-lucide="eye"></i>
+                            Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-item">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=SE" alt="Software Engineering">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Software Engineering</h3>
+                        <p class="book-author">by Ian Sommerville</p>
+                        <p class="book-isbn">ISBN: 978-0133943030</p>
+                        <div class="book-dates">
+                            <span class="borrowed-date">Borrowed: 2025-01-10</span>
+                            <span class="due-date">Due: 2025-02-20</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-primary">30 days left</span>
+                            <span class="renewal-info">1 renewal left</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-outline btn-small" onclick="renewBook(2)">
+                            <i data-lucide="refresh-cw"></i>
+                            Renew
+                        </button>
+                        <button class="btn btn-ghost btn-small" onclick="viewBookDetails(2)">
+                            <i data-lucide="eye"></i>
+                            Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-item overdue">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=Networks" alt="Computer Networks">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Computer Networks</h3>
+                        <p class="book-author">by Andrew S. Tanenbaum</p>
+                        <p class="book-isbn">ISBN: 978-0132126953</p>
+                        <div class="book-dates">
+                            <span class="borrowed-date">Borrowed: 2024-12-10</span>
+                            <span class="due-date overdue-text">Due: 2025-01-10 (Overdue)</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-danger">8 days overdue</span>
+                            <span class="fine-amount">Fine: ৳40</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-danger btn-small" onclick="payFine(3)">
+                            <i data-lucide="credit-card"></i>
+                            Pay Fine
+                        </button>
+                        <button class="btn btn-ghost btn-small" onclick="viewBookDetails(3)">
+                            <i data-lucide="eye"></i>
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-booked Books -->
+        <div class="tab-content" id="prebooked-tab">
+            <div class="books-list">
+                <div class="book-item prebooked">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=AI" alt="Artificial Intelligence">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Artificial Intelligence: A Modern Approach</h3>
+                        <p class="book-author">by Stuart Russell & Peter Norvig</p>
+                        <p class="book-isbn">ISBN: 978-0134610993</p>
+                        <div class="book-dates">
+                            <span class="prebook-date">Pre-booked: 2025-01-18</span>
+                            <span class="expiry-date">Expires: 2025-01-19 at 2:00 PM</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-secondary">Ready for pickup</span>
+                            <span class="time-left">6 hours left</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-primary btn-small" onclick="extendPrebook(1)">
+                            <i data-lucide="clock"></i>
+                            Extend
+                        </button>
+                        <button class="btn btn-outline btn-small" onclick="cancelPrebook(1)">
+                            <i data-lucide="x"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Borrowing History -->
+        <div class="tab-content" id="history-tab">
+            <div class="history-filters">
+                <select id="history-filter" class="filter-select">
+                    <option value="all">All History</option>
+                    <option value="returned">Returned Books</option>
+                    <option value="overdue">Previously Overdue</option>
+                    <option value="renewed">Renewed Books</option>
+                </select>
+                <input type="date" id="date-from" class="date-input">
+                <input type="date" id="date-to" class="date-input">
+                <button class="btn btn-outline btn-small" onclick="filterHistory()">Filter</button>
+            </div>
+
+            <div class="books-list">
+                <div class="book-item history">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=OS" alt="Operating Systems">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Operating System Concepts</h3>
+                        <p class="book-author">by Abraham Silberschatz</p>
+                        <div class="book-dates">
+                            <span class="borrowed-date">Borrowed: 2024-12-01</span>
+                            <span class="returned-date">Returned: 2024-12-28</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-secondary">Returned</span>
+                            <span class="duration">27 days borrowed</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-ghost btn-small" onclick="borrowAgain(4)">
+                            <i data-lucide="repeat"></i>
+                            Borrow Again
+                        </button>
+                    </div>
+                </div>
+
+                <div class="book-item history">
+                    <div class="book-image">
+                        <img src="https://via.placeholder.com/80x120?text=Algorithms" alt="Algorithms">
+                    </div>
+                    <div class="book-details">
+                        <h3 class="book-title">Introduction to Algorithms</h3>
+                        <p class="book-author">by Thomas H. Cormen</p>
+                        <div class="book-dates">
+                            <span class="borrowed-date">Borrowed: 2024-11-15</span>
+                            <span class="returned-date">Returned: 2024-12-20</span>
+                        </div>
+                        <div class="book-status">
+                            <span class="badge badge-secondary">Returned</span>
+                            <span class="duration">35 days borrowed (Renewed once)</span>
+                        </div>
+                    </div>
+                    <div class="book-actions">
+                        <button class="btn btn-ghost btn-small" onclick="borrowAgain(5)">
+                            <i data-lucide="repeat"></i>
+                            Borrow Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <a href="books.html" class="btn btn-primary">
+                <i data-lucide="search"></i>
+                Browse More Books
+            </a>
+            <a href="fines.html" class="btn btn-outline">
+                <i data-lucide="credit-card"></i>
+                Pay Outstanding Fines
+            </a>
+            <a href="notes.html" class="btn btn-outline">
+                <i data-lucide="file-text"></i>
+                Study Notes
+            </a>
+        </div>
+    </div>
+
+    <script src="scripts/my-books.js"></script>
+</body>
+</html>
