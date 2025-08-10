@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body>
+<body class="index">
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -121,8 +121,8 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">What's New?</h2>
-                <p class="section-description">
-                    Discover the latest features that make your library experience smarter and more convenient
+                <p class="scd">
+                    Discover the latest features that make your library experience smarter and more convenient :
                 </p>
             </div>
             <div class="new-features-grid">
@@ -170,78 +170,141 @@
     </section>
 
     <!-- New Arrivals Section -->
-    <section class="new-arrivals">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">New Arrivals</h2>
-                <p class="section-description">
-                    Check out the latest books added to our collection
-                </p>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.books-slider');
+  const cards = document.querySelectorAll('.book-card');
+  const visibleCount = 4;
+  let index = 0;
+
+  function slideBooks() {
+    index++;
+    if (index > cards.length - visibleCount) {
+      index = 0; // Loop back
+    }
+    const offset = index * (cards[0].offsetWidth + 16); // 16px = gap
+    slider.style.transform = `translateX(-${offset}px)`;
+  }
+
+  setInterval(slideBooks, 3000); // Every 3 seconds
+});
+</script>
+<section class="new-arrivals">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">New Arrivals</h2>
+      <p class="section-description">Check out the latest books added to our collection</p>
+    </div>
+
+    <div class="slider-wrapper">
+      <button class="nav-btn prev-btn">&#10094;</button>
+      <div class="books-grid">
+        <div class="books-slider">
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/ArtificialIntelligenceAModernApproach.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Artificial Intelligence: A Modern Approach</h3>
+              <p class="book-author">Stuart Russell & Peter Norvig</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">CSE</span>
+                <span class="badge badge-secondary">4th Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 18, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
             </div>
+          </div>
 
-            <div class="books-grid">
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/150x200?text=AI+Book" alt="AI Book" class="book-image">
-                    <div class="book-info">
-                        <h3 class="book-title">Artificial Intelligence: A Modern Approach</h3>
-                        <p class="book-author">Stuart Russell & Peter Norvig</p>
-                        <div class="book-badges">
-                            <span class="badge badge-outline">CSE</span>
-                            <span class="badge badge-secondary">4th Edition</span>
-                        </div>
-                        <p class="book-date">Added: Jan 18, 2025</p>
-                        <button class="btn btn-primary btn-small">View Details</button>
-                    </div>
-                </div>
-
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/150x200?text=ML+Book" alt="ML Book" class="book-image">
-                    <div class="book-info">
-                        <h3 class="book-title">Pattern Recognition and Machine Learning</h3>
-                        <p class="book-author">Christopher Bishop</p>
-                        <div class="book-badges">
-                            <span class="badge badge-outline">CSE</span>
-                            <span class="badge badge-secondary">New Edition</span>
-                        </div>
-                        <p class="book-date">Added: Jan 16, 2025</p>
-                        <button class="btn btn-primary btn-small">View Details</button>
-                    </div>
-                </div>
-
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/150x200?text=Energy+Book" alt="Energy Book" class="book-image">
-                    <div class="book-info">
-                        <h3 class="book-title">Renewable Energy Engineering</h3>
-                        <p class="book-author">Nicholas Jenkins</p>
-                        <div class="book-badges">
-                            <span class="badge badge-outline">EEE</span>
-                            <span class="badge badge-secondary">Latest</span>
-                        </div>
-                        <p class="book-date">Added: Jan 15, 2025</p>
-                        <button class="btn btn-primary btn-small">View Details</button>
-                    </div>
-                </div>
-
-                <div class="book-card">
-                    <img src="https://via.placeholder.com/150x200?text=Manufacturing" alt="Manufacturing Book" class="book-image">
-                    <div class="book-info">
-                        <h3 class="book-title">Advanced Materials and Manufacturing</h3>
-                        <p class="book-author">Mikell P. Groover</p>
-                        <div class="book-badges">
-                            <span class="badge badge-outline">ME</span>
-                            <span class="badge badge-secondary">6th Edition</span>
-                        </div>
-                        <p class="book-date">Added: Jan 14, 2025</p>
-                        <button class="btn btn-primary btn-small">View Details</button>
-                    </div>
-                </div>
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/Pattern Recognition and Machine Learning.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Pattern Recognition and Machine Learning</h3>
+              <p class="book-author">Christopher Bishop</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">CSE</span>
+                <span class="badge badge-secondary">New Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 16, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
             </div>
+          </div>
 
-            <div class="section-footer">
-                <a href="books.html" class="btn btn-outline btn-large">View All New Arrivals</a>
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/Renewable Energy Engineering.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Renewable Energy Engineering</h3>
+              <p class="book-author">Nicholas Jenkins</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">EEE</span>
+                <span class="badge badge-secondary">Latest</span>
+              </div>
+              <p class="book-date">Added: Jan 15, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
             </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/Advanced Materials and Manufacturing.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Advanced Materials and Manufacturing</h3>
+              <p class="book-author">Mikell P. Groover</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">ME</span>
+                <span class="badge badge-secondary">6th Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 14, 2025</p>
+              <a class="btn btn-primary btn-small" href="books.html">View Details</a>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/dsp.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Digital Signal Processing</h3>
+              <p class="book-author">John G. Proakis</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">EEE</span>
+                <span class="badge badge-secondary">5th Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 14, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/algorithm.png" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Algorithms</h3>
+              <p class="book-author">Robert Sedgewick</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">CSE</span>
+                <span class="badge badge-secondary">4th Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 14, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
+            </div>
+          </div>
+
+          <div class="book-card">
+            <div class="book-info">
+                <img src="images/Engineering Mathematics by H K DAS.jpg" alt="Book Cover" class="book-image">
+              <h3 class="book-title">Advanced Engineering Mathematics</h3>
+              <p class="book-author">H. K. Das</p>
+              <div class="book-badges">
+                <span class="badge badge-outline">ME</span>
+                <span class="badge badge-secondary">6th Edition</span>
+              </div>
+              <p class="book-date">Added: Jan 14, 2025</p>
+              <button class="btn btn-primary btn-small">View Details</button>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <button class="nav-btn next-btn">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+
 
     <!-- Statistics Section -->
     <section class="statistics">
@@ -273,7 +336,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <i data-lucide="book-open"></i>
+                         <img src="images/cuet-logo.png" alt="CUET Logo" class="logo">
                         <span>CUET Library</span>
                     </div>
                     <p class="footer-text">
