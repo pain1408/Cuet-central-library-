@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body>
+<body class="dashboard">
     <!-- Header -->
     <header class="dashboard-header">
         <div class="container">
@@ -19,10 +19,17 @@
                 <button class="btn btn-ghost">
                     <i data-lucide="bell"></i>
                 </button>
-                <button class="btn btn-ghost">
-                    <i data-lucide="user"></i>
-                    Profile
-                </button>
+                <div class="nav-right">
+    <div class="dropdown"> 
+      <button class="dropbtn"> <i data-lucide="user">Profile ▼</i>
+                    </button>
+      <div class="dropdown-content">
+        <a href="#">Edit Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </div>
             </div>
         </div>
     </header>
